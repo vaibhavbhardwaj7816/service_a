@@ -5,7 +5,7 @@ const pact = require(`../pacts/${fileName[0]}`)
 const base64 = Buffer.from(JSON.stringify(pact)).toString("base64")
 axios.post('http://127.0.0.1:9292/contracts/publish', {
     pacticipantName: "Service-A",
-    pacticipantVersionNumber: "5",
+    pacticipantVersionNumber: `${Date.now()}`,
     contracts: [
         {
             consumerName: "Service-A",
