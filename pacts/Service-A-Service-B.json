@@ -1,0 +1,65 @@
+{
+  "consumer": {
+    "name": "Service-A"
+  },
+  "interactions": [
+    {
+      "description": "a GET request to get user data",
+      "request": {
+        "method": "GET",
+        "path": "/fetch-user-data"
+      },
+      "response": {
+        "body": {
+          "userData": [
+            {
+              "userData": [
+                {
+                  "lastName": "Nolan",
+                  "userName": "Christopher"
+                },
+                {
+                  "lastName": "Bradman",
+                  "userName": "Don"
+                }
+              ]
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$.userData": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "min": 1
+                }
+              ]
+            }
+          },
+          "header": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "12.1.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.9",
+      "models": "1.1.11"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "Service-B"
+  }
+}
