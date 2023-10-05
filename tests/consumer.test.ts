@@ -28,7 +28,6 @@ describe('Consumer Test', () => {
             })
         return provider.executeTest(async () => {
             const response =  await mockGetUsers(mock_server_url)
-            console.log('response--->',response)
             return expect(response.data[0].userData).toStrictEqual(userData)
             // return response.then((res) => {
             //     console.log('userData------------->', res.userData)
