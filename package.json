@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon --exec ts-node index.ts",
-    "upload": "node ./upload-pacts/upload-pact.ts"
+    "upload": "node ./upload-pacts/upload-pact.ts",
+    "build": "tsc"
   },
   "keywords": [
     "Consumer",
