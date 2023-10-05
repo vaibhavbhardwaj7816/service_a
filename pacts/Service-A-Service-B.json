@@ -10,28 +10,26 @@
         "path": "/fetch-user-data"
       },
       "response": {
-        "body": {
-          "userData": [
-            {
-              "userData": [
-                {
-                  "lastName": "Nolan",
-                  "userName": "Christopher"
-                },
-                {
-                  "lastName": "Bradman",
-                  "userName": "Don"
-                }
-              ]
-            }
-          ]
-        },
+        "body": [
+          {
+            "userData": [
+              {
+                "lastName": "Nolan",
+                "userName": "Christopher"
+              },
+              {
+                "lastName": "Bradman",
+                "userName": "Don"
+              }
+            ]
+          }
+        ],
         "headers": {
           "Content-Type": "application/json"
         },
         "matchingRules": {
           "body": {
-            "$.userData": {
+            "$": {
               "combine": "AND",
               "matchers": [
                 {

@@ -24,17 +24,19 @@ describe('Consumer Test', () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: { userData: MatchersV3.eachLike({ userData }) },
+                body: MatchersV3.eachLike({ userData }) 
             })
         return provider.executeTest(async () => {
-            const response = mockGetUsers(mock_server_url)
-            return response.then((res) => {
-                console.log('userData------------->', res.userData)
-                console.log('userssssssss--->',userData)
-                expect(res.userData[0].userData).toStrictEqual(userData)
-            }).catch((err) => {
-                expect(err).toBeNull()
-            })
+            const response =  await mockGetUsers(mock_server_url)
+            console.log('response--->',response)
+            return expect(response.data[0].userData).toStrictEqual(userData)
+            // return response.then((res) => {
+            //     console.log('userData------------->', res.userData)
+            //     console.log('userssssssss--->',userData)
+            //     expect(res.userData[0].userData).toStrictEqual(userData)
+            // }).catch((err) => {
+            //     expect(err).toBeNull()
+            // })
         })
     })
 })
