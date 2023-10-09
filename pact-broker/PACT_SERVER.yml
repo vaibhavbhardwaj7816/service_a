@@ -30,3 +30,8 @@ services:
 
 volumes:
   postgres-volume:
+
+networks:
+  default:
+    name: mynetwork
+    external: true
