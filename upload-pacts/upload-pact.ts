@@ -3,7 +3,7 @@ const fs = require('fs')
 const fileName = fs.readdirSync('./pacts')
 const pact = require(`../pacts/${fileName[0]}`)
 const base64 = Buffer.from(JSON.stringify(pact)).toString("base64")
-axios.post('http://Pact_Broker/contracts/publish', {
+axios.post('http://Pact_Broker:9292/contracts/publish', {
     pacticipantName: "Service-A",
     pacticipantVersionNumber: `${Date.now()}`,
     contracts: [
